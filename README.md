@@ -1,126 +1,167 @@
 # India's Diwali Economy (2020–2026)
 
-### An End-to-End Data Analytics and Machine Learning Project
+### An End-to-End Data Analytics Project with Machine Learning Exploration
 
-An analytical exploration of India's Diwali economy, examining festive retail spending, gold market trends, confectionery sales, fireworks industry indicators, and vehicle registration patterns using Python, SQL, and Machine Learning.
+An analytical exploration of India's Diwali-associated economic activity through retail spending patterns, gold demand, confectionery markets, fireworks industry indicators, and vehicle registration trends.
 
-This project integrates multiple datasets to explore India's festive economic activity through data cleaning, database management, exploratory data analysis, predictive modelling, spending-pattern segmentation, and data visualization.
+This project brings together data from multiple sources to study different dimensions of India's festive economy. It uses Python for data preparation and analysis, SQL for structured data querying, and statistical and machine learning techniques to explore patterns in the available data.
+
+> **Research approach:** Not every dataset directly measures Diwali-specific expenditure. The project distinguishes between direct festive retail data and broader economic indicators rather than treating them as equivalent measures of Diwali spending.
+
+---
 
 ## Project Objectives
 
-- Analyze major economic sectors associated with India's Diwali economy.
-- Examine historical vehicle registration and festive spending trends.
-- Explore retail spending patterns and category-wise consumer behaviour.
-- Apply Linear Regression to forecast 2026 festive vehicle registrations and retail spending.
-- Implement K-Means Clustering to identify spending-based customer segments.
-- Integrate multiple datasets into a structured SQLite database.
-- Present analytical findings through visualizations and statistical insights.
+- Explore different sectors associated with India's Diwali economy.
+- Analyze retail transaction patterns and product-category spending.
+- Examine historical vehicle registration trends.
+- Investigate gold and confectionery market indicators.
+- Explore available fireworks industry information.
+- Clean, transform, and prepare datasets using Python.
+- Integrate selected datasets into a relational SQLite database.
+- Use SQL to perform analytical queries and aggregations.
+- Explore opportunities for predictive modelling and spending-pattern segmentation.
 
-## Tech Stack
+---
+
+## Technology Stack
 
 | Category | Technologies |
 |---|---|
 | Programming | Python |
+| Data Manipulation | Pandas, NumPy |
 | Database | SQLite |
 | Query Language | SQL |
-| Data Manipulation | Pandas, NumPy |
 | Machine Learning | Scikit-learn |
-| Predictive Modelling | Linear Regression |
-| Clustering | K-Means |
+| Predictive Modelling | Linear Regression (planned implementation) |
+| Clustering | K-Means (planned implementation) |
 | Feature Scaling | StandardScaler |
-| Data Visualization | Matplotlib |
+| Visualization | Matplotlib |
 | Data Sources | CSV, XLSX, PDF |
+
+---
 
 ## Datasets
 
-The project combines multiple datasets covering different sectors of India's festive economy.
+The project uses multiple datasets covering different dimensions of India's festive economy.
 
-| Dataset | Description |
-|---|---|
-| VAHAN Year-wise | Annual vehicle registration data for 2020–2026 |
-| VAHAN Monthly (2020–2022) | Monthly vehicle registration trends |
-| VAHAN Monthly (2023–2025) | Monthly vehicle registration trends |
-| India Confectionery Market | Historical and forecast confectionery market data |
-| Diwali Sales | Retail transaction data containing customer and product spending information |
-| World Gold Council | Gold market statistics and historical trends |
-| PESO Authorized Fireworks Manufacturers | Information on authorized fireworks manufacturers |
+| Dataset | Description | Analytical Purpose |
+|---|---|---|
+| VAHAN Year-wise | Annual vehicle registration data, 2020–2026 | Long-term registration trends |
+| VAHAN Monthly (2020–2022) | Monthly vehicle registration data | Historical monthly patterns |
+| VAHAN Monthly (2023–2025) | Monthly vehicle registration data | Recent monthly patterns |
+| India Confectionery Market | Historical and forecast market data | Confectionery market trends |
+| Diwali Sales | Retail transaction dataset containing customer, product and amount information | Category-wise spending and customer analysis |
+| World Gold Council | Gold market statistics | Gold demand and jewellery market analysis |
+| PESO Fireworks Information | Information about authorized fireworks manufacturers | Fireworks industry context |
 
-**Data Coverage Note:** The datasets have different reporting periods, geographical coverage, and levels of granularity. Not every dataset directly measures Diwali-specific expenditure. The analysis distinguishes between festive retail transaction patterns, broader market indicators, and vehicle registration activity.
+### Data Coverage and Interpretation
+
+The datasets differ in their reporting periods, geographical coverage, units of measurement, and levels of detail.
+
+Important distinctions:
+
+- The Diwali Sales dataset provides retail transaction-level information.
+- VAHAN data represents vehicle registrations, not verified Diwali vehicle purchases.
+- Confectionery market figures represent broader market activity, not exclusively Diwali sales.
+- Gold market statistics require careful extraction of India-specific jewellery demand figures.
+- Fireworks manufacturer information does not directly measure fireworks sales or consumer expenditure.
+
+These differences are considered when interpreting results and drawing conclusions.
+
+---
 
 ## Project Workflow
 
 ### 1. Data Collection and Preparation
 
-- Collected datasets from multiple sources in CSV, Excel, and PDF formats.
-- Inspected data structures, column types, missing values, and inconsistencies.
-- Cleaned and transformed datasets using Python.
-- Prepared datasets for structured storage and subsequent analysis.
+- Collected datasets from different sources in CSV, Excel, and PDF formats.
+- Inspected dataset structures, column types, and missing values.
+- Removed duplicate records where appropriate.
+- Handled missing numerical values using suitable imputation methods.
+- Converted date and numerical columns into appropriate data types.
+- Created additional analytical features from VAHAN monthly data.
+- Exported cleaned datasets for subsequent analysis.
 
-### 2. Database Management and SQL
+**Output:** Cleaned datasets stored in the `output/` directory.
 
-- Created a local SQLite database named `diwali_economy.db`.
-- Integrated retail transaction and VAHAN vehicle registration datasets.
-- Stored structured data in database tables.
-- Used SQL queries to retrieve, filter, aggregate, and analyze relevant information.
+### 2. Database Management and SQL Analytics
+
+Created a relational SQLite database named `diwali_economy.db`.
+
+The current database ingestion script integrates:
+
+- `fact_transactions` — Diwali retail transaction records.
+- `fact_vehicle_registrations` — Monthly vehicle registration records.
+
+SQL analysis includes:
+
+- Product-category performance.
+- Unique customer counts.
+- Recorded sales amounts by category.
+- Customer purchase activity.
+- Annual vehicle registration trends.
+- October–November registration comparisons.
+- Monthly registration patterns.
+
+SQL query results are exported as CSV files for further analysis.
+
+**Note:** Recorded sales amounts and average row amounts are not automatically equivalent to verified transaction revenue and average order value.
 
 ### 3. Exploratory Data Analysis
 
-Conducted exploratory analysis to investigate:
+The project explores:
 
 - Year-wise vehicle registration trends.
 - Monthly vehicle registration patterns.
-- Year-over-year changes in festive spending.
-- Major retail spending categories.
+- Retail spending across product categories.
+- Customer purchase activity.
 - Gold and confectionery market trends.
-- Relationships between selected economic indicators.
+- Selected relationships between economic indicators.
+
+The analysis is designed to identify patterns and trends while considering differences in dataset coverage and measurement.
 
 ### 4. Predictive Modelling
 
-Implemented Linear Regression using Scikit-learn to:
+The project plans to explore Linear Regression for analysing historical trends and developing forecasts where sufficient comparable historical observations are available.
 
-- Analyze historical trends in vehicle registrations and retail spending.
-- Develop forecasting models for 2026.
-- Compare predicted values with available historical observations.
-- Explore potential future trends in festive economic activity.
+Potential applications include:
+
+- Vehicle registration trend forecasting.
+- Retail spending trend analysis.
+- Comparison of predicted and observed values.
+- Evaluation of model performance using appropriate metrics.
+
+Forecasts will be treated as model-based estimates rather than confirmed economic outcomes.
 
 ### 5. Spending Pattern Segmentation
 
-Applied K-Means Clustering to explore spending patterns.
+The project also explores K-Means Clustering as a potential technique for identifying spending patterns.
 
-Key techniques:
+The proposed workflow includes:
 
-- Standardized numerical features using `StandardScaler`.
-- Applied K-Means to group observations based on spending characteristics.
-- Visualized the resulting clusters using scatter plots.
-- Explored differences between the identified spending segments.
+- Selecting relevant numerical features.
+- Handling missing values and outliers.
+- Standardizing features using `StandardScaler`.
+- Selecting an appropriate number of clusters.
+- Applying K-Means.
+- Interpreting and visualizing the resulting groups.
+
+Any resulting clusters will be treated as exploratory statistical segments rather than verified customer classifications.
 
 ### 6. Data Visualization
 
-Developed five custom visualizations using Matplotlib with a consistent dark-themed design.
+Visualizations are used to communicate patterns in the datasets, including:
 
-The visualizations highlight historical trends, year-over-year changes, spending categories, economic relationships, and spending-based segmentation.
+- Vehicle registration trends.
+- Year-over-year changes.
+- Product-category spending.
+- Economic indicator comparisons.
+- Spending-pattern segmentation.
 
-## Project Visualizations
+Visualizations will be documented alongside the analytical methods and data limitations used to produce them.
 
-### 1. VAHAN Vehicle Registration Trends
-
-![VAHAN Registration Trends](output/linkedin_1_vahan_trend.png)
-
-### 2. Year-over-Year Spending Trends
-
-![Year-over-Year Spending](output/linkedin_2_yoy_spend.png)
-
-### 3. Top Spending Categories
-
-![Top Spending Categories](output/linkedin_3_top_categories.png)
-
-### 4. Macroeconomic Correlation Analysis
-
-![Macroeconomic Correlation](output/linkedin_4_macro_correlation.png)
-
-### 5. Spending Pattern Segmentation
-
-![Spending Segmentation](output/linkedin_5_scatter_segmentation.png)
+---
 
 ## Repository Structure
 
@@ -137,17 +178,24 @@ India-Diwali-Economy-Analysis/
 │   └── PESO_Authorized_Fireworks_Manufacturers.pdf
 │
 ├── output/
-│   ├── linkedin_1_vahan_trend.png
-│   ├── linkedin_2_yoy_spend.png
-│   ├── linkedin_3_top_categories.png
-│   ├── linkedin_4_macro_correlation.png
-│   └── linkedin_5_scatter_segmentation.png
+│   ├── diwali_sales_cleaned.csv
+│   ├── vahan_monthly_cleaned.csv
+│   ├── india_jewellery_demand_raw.csv
+│   ├── category_performance.csv
+│   ├── customer_activity.csv
+│   ├── annual_vehicle_trend.csv
+│   └── monthly_vehicle_trend.csv
 │
 ├── diwali_cleaning.py
 ├── diwali_database.py
 ├── diwali_economy.db
+│
 └── README.md
 ```
+
+*The output files are generated by the corresponding scripts. Additional datasets and visualization files may be added as the project develops.*
+
+---
 
 ## Installation and Setup
 
@@ -165,51 +213,68 @@ cd India-Diwali-Economy-Analysis
 pip install pandas numpy matplotlib scikit-learn openpyxl
 ```
 
-SQLite is supported through Python's built-in `sqlite3` module.
+SQLite is available through Python's built-in `sqlite3` module.
 
-### 3. Run Data Cleaning
+### 3. Prepare the Datasets
+
+Place the required input datasets in the project directory, or update the file paths in the Python scripts if using a separate `data/` directory.
+
+### 4. Run Data Cleaning
 
 ```bash
 python diwali_cleaning.py
 ```
 
-### 4. Set Up the Database
+This prepares the retail and VAHAN datasets and exports the cleaned outputs.
+
+### 5. Create the Database and Run SQL Analytics
 
 ```bash
 python diwali_database.py
 ```
 
-Follow the scripts' actual execution requirements if they expect a particular order or an existing database.
+This creates or updates the SQLite database, executes analytical SQL queries, and exports the query results.
+
+*Run the scripts in the above order when using the cleaned datasets generated by the data-cleaning script.*
+
+---
+
+## Limitations and Considerations
+
+- The datasets have different reporting periods, geographical coverage, and levels of granularity.
+- Not all datasets directly measure Diwali-specific expenditure.
+- Vehicle registrations cannot independently establish Diwali-related vehicle purchases.
+- Broader confectionery and gold market figures should not be interpreted as Diwali-only sales.
+- Fireworks manufacturer records do not represent actual sales or consumer spending.
+- Forecast reliability depends on historical data availability, data quality, and model assumptions.
+- Clustering results depend on feature selection, scaling, and the choice of cluster count.
+- Correlation does not establish causation.
+- 2026 data may represent a partial reporting period and should not be compared with complete years without adjustment.
+
+---
 
 ## Key Learning Outcomes
 
-- Developed an end-to-end data analytics workflow using multiple data sources.
-- Gained practical experience in data cleaning, transformation, and integration.
-- Applied SQL and SQLite for structured data management and querying.
-- Implemented Linear Regression for predictive analytics.
-- Applied K-Means Clustering for spending-pattern segmentation.
-- Used feature scaling to prepare numerical data for clustering.
-- Developed custom visualizations to communicate analytical findings.
-- Explored relationships between consumer spending and broader economic indicators.
+- Developed a multi-dataset data analytics workflow.
+- Practised data cleaning and feature engineering using Pandas.
+- Used SQLite for relational data storage and management.
+- Applied SQL aggregations and analytical queries.
+- Explored retail spending and vehicle registration patterns.
+- Worked with datasets from different sources and reporting formats.
+- Investigated the use of statistical analysis and machine learning in economic data exploration.
+- Developed an understanding of data limitations and responsible interpretation of analytical findings.
 
-## Limitations
-
-- The datasets have different reporting periods, geographical coverage, and levels of granularity.
-- Some datasets represent broader market activity rather than direct Diwali expenditure.
-- Forecasts are model-based estimates and should not be interpreted as confirmed economic outcomes.
-- Customer segments are exploratory statistical groupings and do not necessarily represent verified real-world customer categories.
-- Correlation analysis identifies statistical relationships, not causation.
-- Forecast reliability depends on the available historical data and model assumptions.
+---
 
 ## Author
 
 **Sharada Shenoy**
 
-M.Sc. Computer Science | Data Analytics Enthusiast
+M.Sc. Computer Science | Aspiring Data Analyst
 
 - LinkedIn: [Sharada Shenoy](https://linkedin.com/in/sharada-shenoy-665a79275/)
 - GitHub: [sharadashenoy18](https://github.com/sharadashenoy18)
 
 ---
 
-*An independent Data Analytics and Machine Learning project exploring India's Diwali economy from 2020 to 2026.*
+*An independent Data Analytics project exploring India's Diwali-associated economic activity through multiple data sources.*
