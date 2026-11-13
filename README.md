@@ -4,7 +4,7 @@
 
 An analytical exploration of India's Diwali economy, examining festive retail spending, gold market trends, confectionery sales, fireworks industry indicators, and vehicle registration patterns using Python, SQL, and Machine Learning.
 
-This project integrates multiple datasets to explore India's festive economic activity through data cleaning, database management, exploratory data analysis, predictive modelling, customer segmentation, and data visualization.
+This project integrates multiple datasets to explore India's festive economic activity through data cleaning, database management, exploratory data analysis, predictive modelling, spending-pattern segmentation, and data visualization.
 
 ## Project Objectives
 
@@ -45,7 +45,7 @@ The project combines multiple datasets covering different sectors of India's fes
 | World Gold Council | Gold market statistics and historical trends |
 | PESO Authorized Fireworks Manufacturers | Information on authorized fireworks manufacturers |
 
-**Note:** The datasets represent different economic indicators and have different geographical and temporal coverage. Not every dataset directly measures Diwali-specific expenditure. The analysis distinguishes between festive retail transaction patterns, broader market indicators, and vehicle registration activity.
+**Data Coverage Note:** The datasets have different reporting periods, geographical coverage, and levels of granularity. Not every dataset directly measures Diwali-specific expenditure. The analysis distinguishes between festive retail transaction patterns, broader market indicators, and vehicle registration activity.
 
 ## Project Workflow
 
@@ -60,8 +60,8 @@ The project combines multiple datasets covering different sectors of India's fes
 
 - Created a local SQLite database named `diwali_economy.db`.
 - Integrated retail transaction and VAHAN vehicle registration datasets.
-- Structured data into database tables for efficient querying.
-- Used SQL to retrieve, filter, aggregate, and analyze relevant information.
+- Stored structured data in database tables.
+- Used SQL queries to retrieve, filter, aggregate, and analyze relevant information.
 
 ### 3. Exploratory Data Analysis
 
@@ -85,7 +85,7 @@ Implemented Linear Regression using Scikit-learn to:
 
 ### 5. Spending Pattern Segmentation
 
-Applied K-Means Clustering to explore customer spending patterns.
+Applied K-Means Clustering to explore spending patterns.
 
 Key techniques:
 
@@ -125,7 +125,7 @@ The visualizations highlight historical trends, year-over-year changes, spending
 ## Repository Structure
 
 ```text
-india-diwali-economy-analysis/
+India-Diwali-Economy-Analysis/
 │
 ├── data/
 │   ├── 2020 -2026 vahan year.csv
@@ -154,9 +154,9 @@ india-diwali-economy-analysis/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/sharadashenoy18/india-diwali-economy-analysis.git
+git clone https://github.com/sharadashenoy18/India-Diwali-Economy-Analysis.git
 
-cd india-diwali-economy-analysis
+cd India-Diwali-Economy-Analysis
 ```
 
 ### 2. Install Dependencies
@@ -179,7 +179,7 @@ python diwali_cleaning.py
 python diwali_database.py
 ```
 
-Follow the scripts' actual execution requirements if they expect a particular order or existing database.
+Follow the scripts' actual execution requirements if they expect a particular order or an existing database.
 
 ## Key Learning Outcomes
 
@@ -190,7 +190,7 @@ Follow the scripts' actual execution requirements if they expect a particular or
 - Applied K-Means Clustering for spending-pattern segmentation.
 - Used feature scaling to prepare numerical data for clustering.
 - Developed custom visualizations to communicate analytical findings.
-- Explored the relationship between consumer spending and broader economic indicators.
+- Explored relationships between consumer spending and broader economic indicators.
 
 ## Limitations
 
@@ -199,12 +199,13 @@ Follow the scripts' actual execution requirements if they expect a particular or
 - Forecasts are model-based estimates and should not be interpreted as confirmed economic outcomes.
 - Customer segments are exploratory statistical groupings and do not necessarily represent verified real-world customer categories.
 - Correlation analysis identifies statistical relationships, not causation.
+- Forecast reliability depends on the available historical data and model assumptions.
 
 ## Author
 
 **Sharada Shenoy**
 
-M.Sc. Computer Science | Aspiring Data Analyst
+M.Sc. Computer Science | Data Analytics Enthusiast
 
 - LinkedIn: [Sharada Shenoy](https://linkedin.com/in/sharada-shenoy-665a79275/)
 - GitHub: [sharadashenoy18](https://github.com/sharadashenoy18)
